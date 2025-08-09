@@ -5,7 +5,7 @@
 
 # Sync current code to CIRCUITPY drive (macOS only)
 sync:
-	@cp -X code.py /Volumes/CIRCUITPY; sync
+	@cp -X code.py test_*.py /Volumes/CIRCUITPY; sync
 
 # Serial terminal (macOS only): 115200 baud, no flow control (-fn)
 tty:
