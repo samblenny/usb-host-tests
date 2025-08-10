@@ -43,7 +43,7 @@ def test_unplug_during_find():
                     continue
                 # 3. Otherwise, print properties and cache descriptor
                 cache[key_] = True
-                print_descriptor_properties()
+                print_descriptor_properties(device)
                 print(cache)
             if valid_devices == 0 and len(cache) > 0:
                 # find() found no devices, so clear cache
