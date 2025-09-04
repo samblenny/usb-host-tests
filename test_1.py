@@ -48,7 +48,7 @@ def test_descriptor_parsing_read_gamepad():
             except USBError as e:
                 print(f"conf USBError: .errno={e.errno} '{str(e)}'")
             except USBTimeoutError as e:
-                print(f"conf USBError: .errno={e.errno} '{str(e)}'")
+                print(f"conf USBTimeoutError: .errno={e.errno} '{str(e)}'")
             # 3. Rapidly poll gamepad for input. Goal of this is to trigger
             #    bugs where an in progress USB transaction fights with other
             #    CircuitPython tasks.
@@ -68,7 +68,7 @@ def test_descriptor_parsing_read_gamepad():
     except USBError as e:
         print(f"find USBError: .errno={e.errno} '{str(e)}'")
     except USBTimeoutError as e:
-        print(f"find USBError: .errno={e.errno} '{str(e)}'")
+        print(f"find USBTimeoutError: .errno={e.errno} '{str(e)}'")
 
 
 def run():
