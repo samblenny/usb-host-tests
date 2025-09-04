@@ -61,14 +61,14 @@ def test_descriptor_parsing_read_gamepad():
                         # mad and raises USBError if you poll it too quickly
                         time.sleep(0.003)
                     n = device.read(0x81, buf, timeout=10)
-                except USBError as e:
-                    print(f"read USBError: .errno={e.errno} '{str(e)}'")
                 except USBTimeoutError as e:
                     print(f"read USBError: .errno={e.errno} '{str(e)}'")
-    except USBError as e:
-        print(f"find USBError: .errno={e.errno} '{str(e)}'")
+                except USBError as e:
+                    print(f"read USBError: .errno={e.errno} '{str(e)}'")
     except USBTimeoutError as e:
         print(f"find USBTimeoutError: .errno={e.errno} '{str(e)}'")
+    except USBError as e:
+        print(f"find USBError: .errno={e.errno} '{str(e)}'")
 
 
 def run():
