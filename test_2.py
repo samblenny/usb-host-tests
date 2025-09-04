@@ -52,7 +52,7 @@ def test_unplug_during_find():
         except USBError as e:
             print(f"find USBError: .errno={e.errno} '{str(e)}'")
         except USBTimeoutError as e:
-            print(f"find USBError: .errno={e.errno} '{str(e)}'")
+            print(f"find USBTimeoutError: .errno={e.errno} '{str(e)}'")
 
 def get_desc(device, desc_type, length=256):
     # Read USB descriptor of type specified by desc_type (wIndex always 0).
