@@ -5,6 +5,7 @@ import displayio
 import gc
 import usb
 from usb.core import USBError, USBTimeoutError
+from usb.util import SPEED_LOW, SPEED_FULL
 
 
 def test_unplug_during_find():
@@ -69,6 +70,12 @@ def print_descriptor_properties(device):
     print(f"idProduct     {device.idProduct:04x}")
     print(f"product       {device.product}")
     print(f"manufacturer  {device.manufacturer}")
+    s = device.speed
+    if s == SPEED_LOW:
+        print(f"speed         Low")
+    elif s == SPEED_FULL:
+        print(f"speed         High")
+
 
 def run():
     displayio.release_displays()
