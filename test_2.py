@@ -19,11 +19,17 @@ def test_unplug_during_find():
                 # Read 18 byte device descriptor
                 desc = bytearray(18)
                 device.ctrl_transfer(0x80, 6, 0x01 << 8, 0, desc, 300)
-                # If it's already in the cache, skip this device
+                # Validate descriptor
                 key_ = tuple(desc)
-                if key_ in cache:
+                all_zero = all([b==0 for b in desc])
+                if all_zero:
+                    # Got bad data
+                    print("bad data:", key_)
                     continue
-                # Otherwise, print properties and cache descriptor
+                elif key_ in cache:
+                    # Descriptor is valid but cached, skip device
+                    continue
+                # Otherwise, print properties and add to cache
                 cache[key_] = True
                 print_descriptor_properties(device)
                 print(cache)
