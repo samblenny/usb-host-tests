@@ -47,6 +47,7 @@ def print_descriptor_properties(device):
     print(f"idProduct     {device.idProduct:04x}")
     print(f"product       {device.product}")
     print(f"manufacturer  {device.manufacturer}")
+    print(f"serial_number {device.serial_number}")
 
 def run():
     displayio.release_displays()
